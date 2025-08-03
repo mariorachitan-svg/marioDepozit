@@ -1,105 +1,20 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mario Depozit</title>
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      padding: 20px;
-    }
-    button {
-      padding: 10px 20px;
-      margin: 10px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      background-color: #008CBA;
-      color: white;
-    }
-    #timer {
-      font-size: 24px;
-      margin-top: 10px;
-    }
-    #chat-box {
-      display: none;
-      width: 300px;
-      margin: 20px auto;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 10px;
-      background-color: #f9f9f9;
-      text-align: left;
-    }
-    #chat-log {
-      height: 150px;
-      overflow-y: auto;
-      border: 1px solid #ddd;
-      padding: 5px;
-      margin-bottom: 10px;
-      background: #fff;
-    }
-    input[type="text"] {
-      width: 80%;
-      padding: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marnisit web</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <h1>Bine ai venit la Mario Depozit!</h1>
-
-  <!-- Butoane -->
-  <button onclick="startTimer()">Start Cronometru</button>
-  <button onclick="toggleChat()">Deschide Chat</button>
-
-  <!-- Cronometru -->
-  <div id="timer">00:00</div>
-
-  <!-- Chat simplu -->
-  <div id="chat-box">
-    <div id="chat-log"></div>
-    <input type="text" id="chat-input" placeholder="Scrie un mesaj..." onkeydown="if(event.key==='Enter') sendMsg()" />
-  </div>
-
-  <script>
-    // Cronometru
-    let seconds = 0;
-    let timerInterval;
-    function startTimer() {
-      clearInterval(timerInterval);
-      seconds = 0;
-      timerInterval = setInterval(() => {
-        seconds++;
-        const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
-        const secs = String(seconds % 60).padStart(2, '0');
-        document.getElementById("timer").textContent = ${mins}:${secs};
-      }, 1000);
-    }
-
-    // Chat simplu
-    function toggleChat() {
-      const chat = document.getElementById("chat-box");
-      chat.style.display = chat.style.display === "none" ? "block" : "none";
-    }
-
-    function sendMsg() {
-      const input = document.getElementById("chat-input");
-      const log = document.getElementById("chat-log");
-      const msg = input.value.trim();
-      if (msg) {
-        log.innerHTML += <p><strong>Tu:</strong> ${msg}</p>;
-        input.value = "";
-        setTimeout(() => {
-          log.innerHTML += <p><strong>Bot:</strong> Salut! Încă învăț să răspund 😄</p>;
-          log.scrollTop = log.scrollHeight;
-        }, 500);
-      }
-    }
-  </script>
-
+    <div class="container">
+        <form id="form" class="input-form">
+            <h1>Cum sa inveti HTML cu Mario Rachitan</h1>
+            <h3>Aboneaza-te la newsletter!</h3>
+            <input type="text" id="input" placeholder="Email" required>
+            <button type="submit">Ma abonez</button>
+        </form>
+    </div>
 </body>
+<script src="./index.js"></script>
 </html>
